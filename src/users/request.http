@@ -28,3 +28,25 @@ content-type: application/json
     "email": "test@testmodified.com",
     "password" : "admin123_modified"
 }
+
+
+### update user BAD REQUEST
+PATCH http://localhost:3000/auth/1222
+content-type: application/json
+
+{
+    "email": "test@testmodified.com",
+    "password" : "admin123_modified"
+}
+
+### Find user  BAD REQUEST
+GET http://localhost:3000/auth/1222
+
+### update user  BAD REQUEST
+PATCH http://localhost:3000/auth/222
+content-type: application/json
+
+{
+    "email": "test@testmodified.com",
+    "password" : "admin123_modified"
+}

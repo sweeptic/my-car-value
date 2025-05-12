@@ -35,10 +35,14 @@ export class UsersController {
     return session.color;
   }
 
+  @Get('/whoami')
+  whoAmI(@Session() session: any) {
+    return this.usersService.findOne(session.userId);
+  }
+
   @Post('/signup')
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
     // console.log('body', body);
-    // this.usersService.create(body.email, body.password);
     const user = await this.authService.signup(body.email, body.password);
     session.userId = user.id;
     return user;

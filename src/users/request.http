@@ -59,3 +59,11 @@ content-type: application/json
     "email": "test@testmodified.com",
     "password" : "admin123_modified"
 }
+
+
+### set the color
+GET http://localhost:3000/auth/colors/redrr
+
+
+### get the color
+GET http://localhost:3000/auth/colors

@@ -1,5 +1,14 @@
-### list all
+### sign up
 POST http://localhost:3000/auth/signup
+content-type: application/json
+
+{
+    "email": "test@test11.com",
+    "password" : "admin123"
+}
+
+### sign in
+POST http://localhost:3000/auth/signin
 content-type: application/json
 
 {

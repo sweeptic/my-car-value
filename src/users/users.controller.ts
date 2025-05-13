@@ -46,6 +46,13 @@ export class UsersController {
     return user;
   }
 
+  // without decorator
+  //   @Get('/whoami')
+  //   whoAmI2(@Request() request: Request) {
+  //     request.currentUser;
+  //     return user;
+  //   }
+
   @Post('/signup')
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
     // console.log('body', body);

@@ -7,6 +7,9 @@ content-type: application/json
     "password" : "admin123"
 }
 
+### sign out
+POST http://localhost:3000/auth/signout
+
 ### sign in
 POST http://localhost:3000/auth/signin
 content-type: application/json

@@ -8,11 +8,24 @@ describe('AuthService', () => {
   let fakeUsersService: Partial<UsersService>;
 
   beforeEach(async () => {
+    const users: User[] = [];
     // Create a fake copy of the users service
     fakeUsersService = {
-      find: () => Promise.resolve([]),
-      create: (email: string, password: string) =>
-        Promise.resolve({ id: 1, email, password } as User),
+      find: (email: string) => {
+        const filteredUsers = users.filter((user) => user.email === email);
+        return Promise.resolve(filteredUsers);
+      },
+
+      create: (email: string, password: string) => {
+        const user = {
+          id: Math.floor(Math.random() * 999999),
+          email,
+          password,
+        } as User;
+        users.push(user);
+        return Promise.resolve(user);
+        //   Promise.resolve({ id: 1, email, password } as User),
+      },
     };
 
     const module = await Test.createTestingModule({
@@ -77,25 +90,26 @@ describe('AuthService', () => {
     })();
   });
 
+  //   it('returns a user if correct password is provided', async () => {
+  //     fakeUsersService.find = () =>
+  //       Promise.resolve([
+  //         {
+  //           id: 1,
+  //           email: 'a',
+  //           password:
+  //             '76f63de8d85c6cf4.62e31d8a6d8105eaa3b28b1586d9131f4cdde1230c226a7f8ae97a988b665329',
+  //         } as User,
+  //       ]);
+  //     const user = await service.signin('test@test.com', 'my-password');
+  //     expect(user).toBeDefined();
+  //   });
+
   it('returns a user if correct password is provided', async () => {
-    fakeUsersService.find = () =>
-      Promise.resolve([
-        {
-          id: 1,
-          email: 'a',
-          password:
-            '76f63de8d85c6cf4.62e31d8a6d8105eaa3b28b1586d9131f4cdde1230c226a7f8ae97a988b665329',
-        } as User,
-      ]);
+    await service.signup('test@test.com', 'my-password');
+
     const user = await service.signin('test@test.com', 'my-password');
     expect(user).toBeDefined();
-
-    // const user = await service.signup('test@test.com', 'my-password');
-    // console.log('user', user);
   });
 
-  //
-  //
-  //
-  //
+  //-------------------------------------
 });

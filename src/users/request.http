@@ -75,5 +75,6 @@ GET http://localhost:3000/auth/colors/redrr
 GET http://localhost:3000/auth/colors
 
 
-
+### get the color
+GET http://localhost:3000
 

@@ -16,7 +16,7 @@ describe('Authentication System', () => {
   });
 
   it('handles a signup request', () => {
-    const email = 'asdlkq4321@akl.com';
+    const email = 'asd3lkq4321@akl.com';
 
     return request(app.getHttpServer())
       .post('/auth/signup')
@@ -30,7 +30,7 @@ describe('Authentication System', () => {
   });
 
   it('signup as a new user then get the currently logged in user', async () => {
-    const email = 'asdf@asdf.com';
+    const email = 'as2df@asdf.com';
 
     const res = await request(app.getHttpServer())
       .post('/auth/signup')

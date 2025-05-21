@@ -6,7 +6,7 @@ export class Report {
   id: number;
 
   @Column()
-  price: string;
+  price: number;
 
   @Column()
   make: string;
@@ -15,14 +15,14 @@ export class Report {
   model: string;
 
   @Column()
-  year: string;
+  year: number;
 
   @Column()
-  lng: string;
+  lng: number;
 
   @Column()
-  lat: string;
+  lat: number;
 
   @Column()
-  mileage: string;
+  mileage: number;
 }

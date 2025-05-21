@@ -25,11 +25,11 @@ export class CreateReportDto {
   @IsNumber()
   @Min(0)
   @Max(1000000)
-  price: string;
+  price: number;
 
   @IsLongitude()
-  lng: string;
+  lng: number;
 
   @IsLatitude()
-  lat: string;
+  lat: number;
 }

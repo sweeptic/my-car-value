@@ -13,10 +13,6 @@ content-type: application/json
     "price": 50000
 }
 
-### sign out
-
-POST http://localhost:3000/auth/signout
-
 ### sign in
 
 POST http://localhost:3000/auth/signin 
@@ -26,3 +22,7 @@ content-type: application/json
     "email": "test@test111.com",
     "password": "admin123"
 }
+
+### sign out
+
+POST http://localhost:3000/auth/signout

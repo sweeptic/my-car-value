@@ -4,8 +4,8 @@ POST http://localhost:3000/reports
 content-type: application/json
 
 {
-    "make": "toyota",
-    "model": "corolla",
+    "make": "Mercedes",
+    "model": "clk",
     "year": 1980,
     "mileage": 10000,
     "lng": 0,

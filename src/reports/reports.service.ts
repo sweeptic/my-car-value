@@ -4,20 +4,20 @@ import { Report } from './report.entity';
 import { Repository } from 'typeorm';
 import { CreateReportDto } from './dtos/create-report.dto';
 import { User } from 'src/users/user.entity';
+import { GetEstimateDto } from './dtos/get-estimate.dto';
 
 @Injectable()
 export class ReportsService {
   constructor(@InjectRepository(Report) private repo: Repository<Report>) {}
+
   create(reportDto: CreateReportDto, user: User) {
     const report = this.repo.create(reportDto);
     report.user = user;
-
     return this.repo.save(report);
   }
 
   async changeApproval(id: string, approved: boolean) {
     const idNum = parseInt(id);
-
     const report = await this.repo.findOne({
       where: {
         id: idNum,
@@ -26,8 +26,15 @@ export class ReportsService {
     if (!report) {
       throw new NotFoundException('report not fond');
     }
-
     report.approved = approved;
     return this.repo.save(report);
+  }
+
+  createEstimate(estimateDto: GetEstimateDto) {
+    return this.repo
+      .createQueryBuilder()
+      .select('*')
+      .where('make = :make', { make: estimateDto.make })
+      .getRawMany();
   }
 }

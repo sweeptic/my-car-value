@@ -4,13 +4,13 @@ POST http://localhost:3000/reports
 content-type: application/json
 
 {
-    "make": "Mercedes",
-    "model": "clk",
+    "make": "toyota",
+    "model": "corolla",
     "year": 1980,
-    "mileage": 10000,
+    "mileage": 4545,
     "lng": 0,
     "lat": 0,
-    "price": 50000
+    "price": 34665
 }
 
 ### approve an existing report

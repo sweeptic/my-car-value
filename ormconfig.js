@@ -1,5 +1,6 @@
-const dbConfig = {
+var dbConfig = {
   synchronize: false,
+  keepConnectionAlive: true,
   migrations: ['migrations/*.js'],
   cli: {
     migrationsDir: 'migrations',
@@ -19,8 +20,11 @@ switch (process.env.NODE_ENV) {
       type: 'sqlite',
       database: 'test.sqlite',
       entities: ['**/*.entity.ts'],
+      migrationsRun: true,
     });
+    break;
   case 'production':
+    break;
   default:
     throw new Error('unknown environment');
 }

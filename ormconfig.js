@@ -1,6 +1,6 @@
 var dbConfig = {
   synchronize: false,
-  keepConnectionAlive: true,
+  //   keepConnectionAlive: true,
   migrations: ['migrations/*.js'],
   cli: {
     migrationsDir: 'migrations',

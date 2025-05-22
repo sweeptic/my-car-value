@@ -15,6 +15,10 @@ describe('Authentication System', () => {
     await app.init();
   });
 
+  //   afterEach(async () => {
+  //     await app.close();
+  //   });
+
   it('handles a signup request', () => {
     const email = 'asd3lkq4321@akl.com';
 

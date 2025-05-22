@@ -15,7 +15,7 @@ content-type: application/json
 
 ### approve an existing report
 
-PATCH http://localhost:3000/reports/5 
+PATCH http://localhost:3000/reports/8 
 content-type: application/json
 
 {

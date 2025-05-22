@@ -1,80 +1,85 @@
 ### sign up
-POST http://localhost:3000/auth/signup
+
+POST http://localhost:3000/auth/signup 
 content-type: application/json
 
 {
-    "email": "test@test111.com",
-    "password" : "admin123"
+    "email": "admin@admin.com",
+    "password": "admin123"
 }
 
 ### sign out
+
 POST http://localhost:3000/auth/signout
 
 ### sign in
-POST http://localhost:3000/auth/signin
+
+POST http://localhost:3000/auth/signin 
 content-type: application/json
 
 {
     "email": "test@test111.com",
-    "password" : "admin123"
+    "password": "admin123"
 }
 
-
 ### Find user who am i
+
 GET http://localhost:3000/auth/whoami
 
 ### Find user
+
 GET http://localhost:3000/auth/2
 
-
 ### Find user by email
+
 GET http://localhost:3000/auth?email=test@test.com
 
-
 ### delete user by id
+
 DELETE http://localhost:3000/auth/1
 
-
 ### update user
-PATCH http://localhost:3000/auth/2
+
+PATCH http://localhost:3000/auth/2 
 content-type: application/json
 
 {
     "email": "test@testmodified.com",
-    "password" : "admin123_modified"
+    "password": "admin123_modified"
 }
 
-
 ### update user BAD REQUEST
-PATCH http://localhost:3000/auth/1222
+
+PATCH http://localhost:3000/auth/1222 
 content-type: application/json
 
 {
     "email": "test@testmodified.com",
-    "password" : "admin123_modified"
+    "password": "admin123_modified"
 }
 
 ### Find user  BAD REQUEST
+
 GET http://localhost:3000/auth/1222
 
 ### update user  BAD REQUEST
-PATCH http://localhost:3000/auth/222
+
+PATCH http://localhost:3000/auth/222 
 content-type: application/json
 
 {
     "email": "test@testmodified.com",
-    "password" : "admin123_modified"
+    "password": "admin123_modified"
 }
 
-
 ### set the color
+
 GET http://localhost:3000/auth/colors/redrr
 
-
 ### get the color
+
 GET http://localhost:3000/auth/colors
 
-
 ### get the color
-GET http://localhost:3000
 
+GET http://localhost:3000

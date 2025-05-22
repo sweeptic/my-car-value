@@ -31,17 +31,20 @@ export class ReportsService {
   }
 
   createEstimate(estimateDto: GetEstimateDto) {
-    return this.repo
-      .createQueryBuilder()
-      .select('AVG(price)', 'price')
-      .where('make = :make', { make: estimateDto.make })
-      .andWhere('model = :model', { model: estimateDto.model })
-      .andWhere('lng - :lng BETWEEN -5 AND 5', { model: estimateDto.lng })
-      .andWhere('lat - :lat BETWEEN -5 AND 5', { model: estimateDto.lat })
-      .andWhere('year - :year  BETWEEN -3 AND 3', { model: estimateDto.year })
-      .orderBy('ABS(mileage - :mileage)', 'DESC')
-      .setParameters({ mileage: estimateDto.mileage })
-      .limit(3)
-      .getRawMany();
+    return (
+      this.repo
+        .createQueryBuilder()
+        // .select('*')
+        .select('AVG(price)', 'price')
+        .where('make = :make', { make: estimateDto.make })
+        .andWhere('model = :model', { model: estimateDto.model })
+        .andWhere('lng - :lng BETWEEN -5 AND 5', { lng: estimateDto.lng })
+        .andWhere('lat - :lat BETWEEN -5 AND 5', { lat: estimateDto.lat })
+        .andWhere('year - :year  BETWEEN -3 AND 3', { year: estimateDto.year })
+        .orderBy('ABS(mileage - :mileage)', 'DESC')
+        .setParameters({ mileage: estimateDto.mileage })
+        .limit(3)
+        .getRawMany()
+    );
   }
 }
